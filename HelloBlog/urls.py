@@ -15,14 +15,9 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-<<<<<<< HEAD
+
 import News
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', News.views.home),
-=======
-
-urlpatterns = [
-    url(r'^admin/', admin.site.urls),
->>>>>>> 574d5c19af8772297b4670ed990200e9952fd715
-]
+    ]
