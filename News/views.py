@@ -1,7 +1,6 @@
 from django.shortcuts import render
 
 # Create your views here.
-
 def home(request):
     title = 'Good Night'
     h1 = 'HAHAHA'
@@ -20,3 +19,4 @@ def home(request):
      Bobby Rush.
     '''
     return render(request, 'index.html', locals())
+
