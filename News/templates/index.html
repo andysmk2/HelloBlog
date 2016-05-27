@@ -3,6 +3,10 @@
 {% block title %} {{ title }} {% endblock %}
 {% block h1 %} {{ h1 }} {% endblock %}
 {% block content %} {{ content }} {% endblock %}
-{% block text1 %} {{ text1 }} {% endblock %}
-{% block text2 %} {{ text2 }} {% endblock %}
-{% block text3 %} {{ text3 }} {% endblock %}
+{% block text %}
+{% for post in post_list %}
+        <div class="col-md-4">
+        {{ post }}
+        </div>
+     {% endfor %}
+{% endblock %}
