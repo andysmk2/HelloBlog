@@ -9,16 +9,25 @@ from django.db import models
 class Category(models.Model):
     name = models.CharField(max_length = 20)
 
+    def __unicode__(self):
+        return self.name
 
 class Author(models.Model):
     name = models.CharField(max_length = 20)
     disc = models.CharField(max_length = 100, blank = True)
+
+    def __unicode__(self):
+        return self.name
 
 
 class Page(models.Model):
     title = models.CharField(max_length = 50)
     subtitle = models.CharField(max_length = 50, blank = True)
     category = models.ForeignKey(Category)
+
+    def __unicode__(self):
+        return self.title
+
 
 class Article(models.Model):
     title = models.CharField(max_length = 50)
@@ -27,6 +36,9 @@ class Article(models.Model):
     category = models.ManyToManyField(Category)
     # picture = models
     date = models.DateTimeField()
+
+    def __unicode__(self):
+        return self.title
 
 
 
