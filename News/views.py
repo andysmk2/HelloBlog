@@ -1,5 +1,9 @@
+<<<<<<< HEAD
+# -​*- coding: UTF-8 -*​-
+=======
 # -*- coding: UTF-8 -*-
 
+>>>>>>> c9e06e0e0af3411a2d60a84087c4ebbd19f6e16e
 from django.shortcuts import render
 
 # Create your views here.
