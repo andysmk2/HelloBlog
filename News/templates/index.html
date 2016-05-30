@@ -6,7 +6,12 @@
 {% block text %}
 {% for post in post_list %}
         <div class="col-md-4">
-        {{ post.content }}
-        </div>
-     {% endfor %}
+            <h3>{{ post.title }}</h3>
+            <span>{{ post.author }}</span>
+            <p>{{ post.content }}</p>
+            <div class="">{{ post.category }}</div>
+<em>{{ post.date }}</em>
+
+</div>
+{% endfor %}
 {% endblock %}
