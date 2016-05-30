@@ -2,14 +2,14 @@
 
 
 from django.shortcuts import render
-from models import Page, Article, Author, Category
+from models import Page, Article, Editor, Category
 # Create your views here.
 def home(request):
-    page = Page.objects.get(id = 1)
+    page = Page.objects.get(id = 2)
     title = page.title
     h1 = title
     subtitle = page.subtitle
-    post_list = Article.objects.filter(category = page.category)
+    post_list = Article.objects.all()
     # h1 = '【教學】吃蘿蔔！球場意外第一名　傷後處理，你做對了嗎？'
     # content = '勇士打雷霆'
     # post_list = ['據《克里夫蘭老實人報》報導，自從進入NBA以來，LeBron James已經取得了巨大的成就，而且在很長一段時間內都被認為是聯盟裡最好的球員，但是前騎士隊總經理，在2003年NBA選秀大會上選擇James的Jim Paxson卻依然認為James被有所低估。']

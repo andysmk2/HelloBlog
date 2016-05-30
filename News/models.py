@@ -4,7 +4,11 @@ from django.db import models
 
 # Create your models here.
 
+class Menu(models.Model):
+    name = models.CharField(max_length=20)
 
+    def __unicode__(self):
+        return self.name
 
 class Category(models.Model):
     name = models.CharField(max_length = 20)
@@ -13,7 +17,7 @@ class Category(models.Model):
         return self.name
 
 
-class Author(models.Model):
+class Editor(models.Model):
     name = models.CharField(max_length = 20)
     disc = models.CharField(max_length = 100, blank = True)
 
@@ -24,7 +28,7 @@ class Author(models.Model):
 class Page(models.Model):
     title = models.CharField(max_length = 50)
     subtitle = models.CharField(max_length = 50, blank = True)
-    category = models.ForeignKey(Category)
+    menu = models.ForeignKey(Menu, default = 1)
 
     def __unicode__(self):
         return self.title
@@ -33,8 +37,9 @@ class Page(models.Model):
 class Article(models.Model):
     title = models.CharField(max_length = 50)
     content = models.TextField(max_length = 500)
-    author = models.ForeignKey(Author)
-    category = models.ManyToManyField(Category)
+    editor = models.ForeignKey(Editor, default = 1)
+    category = models.ForeignKey(Category, default = 1)
+    page = models.ForeignKey(Page, default = 1)
     # picture = models
     date = models.DateTimeField()
 

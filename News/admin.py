@@ -5,5 +5,7 @@ import models
 admin.site.register(models.Category)
 admin.site.register(models.Page)
 admin.site.register(models.Article)
-admin.site.register(models.Author)
+admin.site.register(models.Editor)
+admin.site.register(models.Menu)
+
 
