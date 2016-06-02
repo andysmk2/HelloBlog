@@ -7,12 +7,11 @@
 {% for post in post_list %}
         <div class="col-md-4">
             <h3>{{ post.title }}</h3>
-            <span>{{ post.author }}</span>
+            <span>{{ post.editor }}</span>
             <p>{{ post.content }}</p>
             <div class="">{{ post.category }}</div>
 <em>{{ post.date }}</em>
 
 </div>
-
-     {% endfor %}
+{% endfor %}
 {% endblock %}
