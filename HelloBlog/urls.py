@@ -20,6 +20,9 @@ from django.contrib import admin
 import News.views
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', News.views.home),
+    url(r'^$', News.views.home, name = 'home'),
+    url(r'^contact/$', News.views.contact),
+    url(r'^(?P<slug>[^\.]+)/$', News.views.view_single_article, name = 'single_article'),
+
 ]
 
