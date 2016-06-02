@@ -1,10 +1,10 @@
 # -​*- coding: UTF-8 -*​-
 
-
 from django.shortcuts import render, get_object_or_404
 from forms import ContactForm
 import datetime
 from models import Page, Article, Editor, Category, Contact
+
 # Create your views here.
 def home(request):
     page = Page.objects.get(id = 2)
@@ -12,7 +12,6 @@ def home(request):
     h1 = title
     subtitle = page.subtitle
     post_list = Article.objects.all()
-
 
     return render(request, 'index.html', locals())
 

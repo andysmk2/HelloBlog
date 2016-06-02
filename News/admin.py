@@ -10,4 +10,3 @@ admin.site.register(models.Article, ArticleAdmin)
 admin.site.register(models.Editor)
 admin.site.register(models.Menu)
 admin.site.register((models.Contact))
-

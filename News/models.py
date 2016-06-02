@@ -29,6 +29,7 @@ class Editor(models.Model):
 class Page(models.Model):
     title = models.CharField(max_length = 100)
     subtitle = models.CharField(max_length = 100, blank = True)
+
     menu = models.ForeignKey(Menu, default = 1)
 
     def __unicode__(self):
