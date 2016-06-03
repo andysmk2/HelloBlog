@@ -40,6 +40,7 @@ class Article(models.Model):
     title = models.CharField(max_length = 100)
     slug = models.SlugField(max_length = 100, allow_unicode = True)
     content = models.TextField()
+    thumbnail = models.URLField(blank=True)
     editor = models.ForeignKey(Editor, default = 1)
     category = models.ForeignKey(Category, default = 1)
     page = models.ForeignKey(Page, default = 1)
@@ -53,11 +54,5 @@ class Article(models.Model):
         return self.title
 
 
-
-class Contact(models.Model):
-    name = models.CharField(max_length = 50)
-    email = models.EmailField(max_length = 255)
-    content = models.TextField()
-    date = models.DateTimeField()
 
 

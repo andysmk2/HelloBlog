@@ -4,13 +4,11 @@ from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponseRedirect
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib import auth
-from forms import ContactForm
-import datetime
-from models import Page, Article, Editor, Category, Contact
+from models import Page, Article, Editor, Category
 
 # Create your views here.
 def home(request):
-    if request.POST:
+    if request.POST and request.POST.get('login'):
         if request.user.is_authenticated():
             return HttpResponseRedirect('/')
 
@@ -43,20 +41,7 @@ def view_single_article(request, slug):
     post_list = [get_object_or_404(Article, slug = slug)]
     return render(request, 'index.html', locals())
 
-def contact(request):
-    if request.POST:
-        f = ContactForm(request.POST)
-        if f.is_valid():
-            name = f.cleaned_data['name']
-            content = f.cleaned_data['content']
-            email = f.cleaned_data['email']
-            Contact.objects.create(name = name, email = email, content = content,
-                                   date = datetime.datetime.now())
-            f = ContactForm()
-    else:
-        f = ContactForm()
 
-    return render(request, 'contact.html', locals())
 
 
 
@@ -74,8 +59,9 @@ def contact(request):
 #         auth.login(request, user)
 #         return HttpResponseRedirect('/')
 #     else:
-#         return render(request, 'registration/login.html', locals())
+#         return render(request, 'registration/register.html', locals())
 #
 # def logout(request):
 #     auth.logout(request)
 #     return HttpResponseRedirect('/')
+
