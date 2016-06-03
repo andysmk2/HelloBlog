@@ -3,8 +3,8 @@
 {% block title %} {{ title }} {% endblock %}
 {% block h1 %} {{ h1 }} {% endblock %}
 {% block subtitle %} {{ subtitle }} {% endblock %}
-{% block text %}
-    {% if request.user.is_authenticated %}
+{% block login %}
+     {% if request.user.is_authenticated %}
         <p>{{request.user}}您已經登入囉 <a href="{% url 'logout' %}">登出</a></p>
     {% else %}
         <p>您尚未登入喔</p>
@@ -26,13 +26,30 @@
         <input type="submit" value="登入" />
         </form>
     {% endif %}
+ {% endblock %}
+{% block text %}
     {% for post in post_list %}
-        <div class="col-md-4">
+        <div class="col-md-6 col-md-offset-3 post-list">
+        <div class="row">
+            <div class="col-md-6 pb20">
+                    <div class="editor-avatar">
+                        {% load staticfiles %}
+                        <img src="{% static "img/ss.jpg" %}" class="img-avatar" alt="avatar"/>
+                    </div>
+                    <div class="editor-meta">
+            <span class="editor">{{ post.editor }}</span>
+            <span class="date">{{ post.date }}</span>
+                  </div>
+            </div>
+            </div>
+             <p>{{ post.content }}</p>
+            <img src="{% static "img/radiohead.jpg" %}" class="img-post" alt="img"/>
             <h3>{{ post.title }}</h3>
-            <span>{{ post.editor }}</span>
-            <p>{{ post.content }}</p>
-            <div class="">{{ post.category }}</div>
-            <em>{{ post.date }}</em>
+            <div class="row pt20">
+                <div class="col-md-4 post-hash"><i class="fa fa-hashtag" aria-hidden="true"></i><span class="hash">1000 </span>
+</div>
+            <div class="col-md-4 col-md-offset-4 post-cat"><span class="cats"> {{ post.category }} </span><i class="fa fa-bookmark-o" aria-hidden="true"></i></div>
+            </div>
         </div>
     {% endfor %}
 
