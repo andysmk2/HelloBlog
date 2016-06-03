@@ -16,15 +16,16 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from django.contrib.auth.views import login, logout
-import News
+import HelloBlog.views
 import News.views
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^accounts/login/$', login, {'template_name': 'index.html'}, name = 'login'),
     url(r'^accounts/logout/$', logout, {'next_page': '/'}, name = 'logout'),
+    url(r'^accounts/register/$', HelloBlog.views.register, name='register'),
     url(r'^$', News.views.home, name = 'home'),
-    url(r'^contact/$', News.views.contact),
+    url(r'^contact/$', HelloBlog.views.contact),
     url(r'^(?P<slug>[^\.]+)/$', News.views.view_single_article, name = 'single_article'),
+
 
 ]
 
